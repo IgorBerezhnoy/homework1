@@ -1,5 +1,7 @@
 .App {
     header_height: 60px;
+    font-family: 'Montserrat', sans-serif;
+    margin: auto;
 }
 
 .hw {
@@ -8,4 +10,5 @@
 
 .hwTitle {
 margin-top: 50px;
+padding-bottom :10px ;
 }

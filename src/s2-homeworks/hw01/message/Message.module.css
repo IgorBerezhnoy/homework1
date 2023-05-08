@@ -1,20 +1,36 @@
 .message {
-
+    display: flex;
+    padding: 15px;
+    justify-content: flex-end;
 }
 
 .imageAndText {
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
 
 }
 
 .imageAndText img {
     width: 48px;
-    flex: 1;
+    margin: 10px;
     display: flex;
-    flex-direction: row-reverse;
+    order: 2;
+
 }
 
 .text {
-
+    order: 1;
+    height: auto;
+    padding: 10px;
+    border-radius: 20px;
+    color: white;
+    background: #0066CC;
+    max-width: 600px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
 }
 
 .text:after {
@@ -22,7 +38,12 @@
 }
 
 .name {
-
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column-reverse;
+    font-size: 18px;
+    font-weight: bolder;
+    padding-bottom:5px ;
 }
 
 .messageText {
@@ -30,5 +51,6 @@
 }
 
 .time {
-
+display: flex;
+    flex-direction: column-reverse;
 }
