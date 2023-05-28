@@ -3,6 +3,7 @@
 }
 
 .textarea {
+    margin-top: 100px;
     padding: 20px;
     resize: none;
     border-radius: 30px;
