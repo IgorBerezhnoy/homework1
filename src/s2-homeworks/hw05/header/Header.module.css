@@ -1,8 +1,15 @@
 .burgerMenuIcon {
+
 }
 
 .header {
+    padding-bottom:30px ;
+    border-bottom:solid black 1px ;
+    background-color: #fdfdfe;
 }
 
 .header h1 {
+    float: right;
+    padding: 10px 30px;
+
 }
