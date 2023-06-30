@@ -27,6 +27,7 @@ let localValue=restoreState('hw6-editable-span-value', value)
     return (
         <div id={'hw6'}>
             <div className={s2.hwTitle}>Homework #6</div>
+            <hr/>
 
             {/*демонстрация возможностей компоненты:*/}
             <div className={s2.hw}>
