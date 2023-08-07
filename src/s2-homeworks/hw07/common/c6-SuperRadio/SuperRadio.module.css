@@ -1,7 +1,9 @@
 .radio {
+accent-color: black;
 }
 
 .radio::before {
+    accent-color: black;
 }
 
 
@@ -9,6 +11,10 @@
 }
 
 .label {
+    display: flex;
+    bottom: 10px;
+    margin: 10px;
+    color: black;
 }
 
 .options {
