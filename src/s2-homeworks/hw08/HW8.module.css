@@ -2,22 +2,43 @@
 }
 
 .item:last-of-type {
+
 }
 
 .users {
+
+    border-collapse: collapse;
+    border-bottom: solid 1px #e4e4e4;;
 }
 
 .buttonsContainer {
 }
 
 .container {
+    margin: 30px;
 }
 
 .thead {
+    table-layout: fixed;
+    background-color: #e4e4e4;
+    padding: 10px;
+    font-weight: bold;
+
+}
+.thead th {
+    padding: 10px;
 }
 
 .nameCol {
+    padding: 10px;
+    min-width: 400px;
+    border-bottom: solid 1px #e4e4e4;
+    text-align: center;
 }
 
 .ageCol {
+    border-bottom: solid 1px #e4e4e4;
+    min-width: 400px;
+    text-align: center;
+
 }
