@@ -2,13 +2,19 @@
 }
 
 .clock {
+    padding-left: 30px;
 }
 
 .watch {
+    font-family: Montserrat, sans-serif;
+    font-size: 20px
 }
 
 .watch strong {
 }
 
 .more {
+    color: rgba(0, 0, 0, 0.50);
+    font-size: 16px;
+    margin: 5px;
 }
