@@ -49,7 +49,7 @@ function Clock() {
         <br/>; // часы24:минуты:секунды (01:02:03)/(23:02:03)/(24:00:00)/(00:00:01) // пишут студенты
     // const stringDate = `${getDoubleStrings(date.getDay())}:${getDoubleStrings(date.getMonth())}:${getDoubleStrings(date.getFullYear())}` ||
     //     <br/>; // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
-    const stringDate =` ${getDoubleStrings(date.getDate())}:${getDoubleStrings(date.getMonth() + 1)}:${getDoubleStrings(date.getFullYear())}` || <br/>;
+    const stringDate =` ${getDoubleStrings(date.getDate())}.${getDoubleStrings(date.getMonth() + 1)}.${getDoubleStrings(date.getFullYear())}` || <br/>;
     // день недели на английском, месяц на английском (https://learn.javascript.ru/intl#intl-datetimeformat)
 
     const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
