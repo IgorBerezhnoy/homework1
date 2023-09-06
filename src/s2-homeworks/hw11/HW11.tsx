@@ -39,6 +39,7 @@ function HW11() {
                             onChange={change}
                             value={value1}
 
+
                             // сделать так чтоб value1 изменялось // пишет студент
 
                         />
@@ -52,7 +53,7 @@ function HW11() {
                             // сделать так чтоб value1/2 изменялось // пишет студент
 
                         />
-                        <span id={'hw11-value-2'} className={s.number}>{value2}</span>
+                        <span id={'hw11-value-2'} className={s.number}>{value2[1]}</span>
                     </div>
                 </div>
             </div>
