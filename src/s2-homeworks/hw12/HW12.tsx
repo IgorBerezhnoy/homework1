@@ -32,7 +32,6 @@ const HW12 = () => {
     };
 
         useEffect(() => {
-            debugger
             document.documentElement.dataset.theme = themeId + ''
         }, [themeId])
 
