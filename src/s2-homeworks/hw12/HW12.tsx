@@ -31,10 +31,11 @@ const HW12 = () => {
         dispatch(changeThemeId(rightId!));
     };
 
-    useEffect(() => {
-        let theme=themes?.find(el=>el.id===themeId)?.value
-        document.documentElement.dataset.theme = theme!;
-    }, [themeId]);
+        useEffect(() => {
+            debugger
+            document.documentElement.dataset.theme = themeId + ''
+        }, [themeId])
+
 
     return (
         <div id={'hw12'}>
