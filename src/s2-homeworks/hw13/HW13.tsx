@@ -46,8 +46,8 @@ const HW13 = () => {
                 if (e.response.status === 500) {
                     setImage(error500);
                     setCode('Ошибка 500!');
-                    setText('ошибка 500 - обычно означает что что-то сломалось на сервере, например база данных)');
-                    setInfo('эмитация ошибки на сервере');
+                    setText('эмитация ошибки на сервере');
+                    setInfo('ошибка 500 - обычно означает что что-то сломалось на сервере, например база данных)');
 
                 } else if (e.response.status === 400) {
                     setImage(error400);
@@ -58,8 +58,8 @@ const HW13 = () => {
                     setImage(errorUnknown);
                     console.log(e);
                     setCode('Error');
-                    setText('Error');
-                    setInfo('Error');
+                    setText('Network Error');
+                    setInfo('AxiosError');
                 }
 
             });
