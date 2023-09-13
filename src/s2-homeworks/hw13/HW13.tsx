@@ -35,24 +35,23 @@ const HW13 = () => {
             .post(url, {success: x})
             .then((res) => {
                 setCode('Код 200!');
-                setText("...всё ок) код 200 - обычно означает что скорее всего всё ок)")
+                setText("...всё ок)")
                 setImage(success200);
                 // дописать
 
             })
             .catch((e) => {
                 console.log(e);
-                if (e.message==="Request failed with status code 500"){
+                if (e.response.status===500){
                     setImage(error500)
                     setCode('Ошибка 500!');
                     setText("эмитация ошибки на сервере\n" +
                         "ошибка 500 - обычно означает что что-то сломалось на сервере, например база данных)")
                 }
-                if (e.message==="Request failed with status code 400"){
+                else if (e.message==="Request failed with status code 400"){
                     setImage(error400)
                     setCode('Ошибка 400!');
-                    setText("Ты не отправил success в body вообще!\n" +
-                        "ошибка 400 - обычно означает что скорее всего фронт отправил что-то не то на бэк!")
+                    setText("Ты не отправил success в body вообще!")
                 }
                 else {
                     setImage(errorUnknown)
