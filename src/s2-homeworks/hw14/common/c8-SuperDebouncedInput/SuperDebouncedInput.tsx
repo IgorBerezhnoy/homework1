@@ -26,12 +26,19 @@ const SuperDebouncedInput: React.FC<SuperDebouncedInputPropsType> = (
         ...restProps // все остальные пропсы попадут в объект restProps
     }
 ) => {
-    const [timerId, setTimerId] = useState<number | undefined>(undefined)
+    let [timerId, setTimerId] = useState<number | undefined>(undefined)
 
     const onChangeTextCallback = (value: string) => {
         onChangeText?.(value)
 
         if (onDebouncedChange) {
+
+            clearTimeout(timerId)
+           let timer=setTimeout(()=>{
+               onDebouncedChange(value)
+           },1500)
+
+        setTimerId(Number(timer))
             // делает студент
 
             // остановить предыдущий таймер
@@ -39,6 +46,7 @@ const SuperDebouncedInput: React.FC<SuperDebouncedInputPropsType> = (
 
             //
         }
+
     }
 
     return (
