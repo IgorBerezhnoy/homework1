@@ -3,5 +3,10 @@
 }
 
 .loading {
-
+    padding-left: 320px;
+    color: #4D4D4D;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
 }
