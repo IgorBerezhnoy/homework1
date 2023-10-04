@@ -8,9 +8,9 @@ import SuperSort from './common/c10-SuperSort/SuperSort';
 import {Loader} from '../hw10/Loader';
 
 /*
-* 1 - дописать SuperPagination
-* 2 - дописать SuperSort
-* 3 - проверить pureChange тестами
+* 1 - дописать SuperPagination+
+* 2 - дописать SuperSort+
+* 3 - проверить pureChange тестами++
 * 3 - дописать sendQuery, onChangePagination, onChangeSort в HW15
 * 4 - сделать стили в соответствии с дизайном
 * 5 - добавить HW15 в HW5/pages/JuniorPlus
@@ -49,7 +49,7 @@ const HW15 = () => {
     const [techs, setTechs] = useState<TechType[]>([]);
 
     const sendQuery = (params: any) => {
-
+        console.log(params);
         setLoading(true);
         getTechs(params)
             .then((res) => {
@@ -67,22 +67,28 @@ const HW15 = () => {
 
         setPage(newPage);
         setCount(newCount);
-
-        // sendQuery(
+        // const params = newSort !== '' ? {sort: newSort} : {}
+        // const sortQ: {sort?: string} = newSort !== '' ? {sort: newSort} : {}
+        // const {sort, ...lastParams} = Object.fromEntries(searchParams);
+        const paramsWithoutSort:{page?:string ,count?:string} = { page:newPage.toString(), count:newCount.toString()} // {sort: 1, page: 2, test: 3}
+        const {page, count, ...lastQ} = Object.fromEntries(searchParams);
+        const allQ = { ...lastQ, ...paramsWithoutSort } // {sort: 1, page: 2, test: 3}
+        sendQuery(allQ);
+        setSearchParams(allQ);
         // setSearchParams(
 
         //
     };
 
     const onChangeSort = (newSort: string) => {
-        console.log(newSort);
+
         setSort(newSort);
         setPage(1);
-
-        // делает студент
-
-        // setSort(
-        // setPage(1) // при сортировке сбрасывать на 1 страницу
+        const sortQ: {sort?: string} = newSort !== '' ? {sort: newSort} : {}
+        const {sort, ...lastQ} = Object.fromEntries(searchParams);
+        const allQ = { ...lastQ, ...sortQ } // {sort: 1, page: 2, test: 3}
+        sendQuery(allQ);
+        setSearchParams(allQ);
 
         // sendQuery(
         // setSearchParams(
