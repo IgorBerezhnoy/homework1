@@ -119,7 +119,7 @@ const HW15 = () => {
             <div className={s2.hwTitle}>Homework #15</div>
 
             <div className={s2.hw}>
-                {idLoading && <div id={'hw15-loading'} className={s.loading}><Loader/></div>}
+
 
                 <SuperPagination
                     page={page}
@@ -139,7 +139,7 @@ const HW15 = () => {
                     </div>
                 </div>
 
-                {mappedTechs}
+                {idLoading && <div id={'hw15-loading'} className={s.loading}><Loader/></div> ||mappedTechs}
             </div>
         </div>
     );

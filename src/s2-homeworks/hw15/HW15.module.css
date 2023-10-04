@@ -1,16 +1,21 @@
 .tech {
-    width: 50vw;
+    padding: 10px;
+    min-width: 400px;
+    border-bottom: solid 1px #e4e4e4;
 }
 
 .developer {
-
+    padding: 10px;
+    min-width: 400px;
+    border-bottom: solid 1px #e4e4e4;
 }
 
 .techHeader {
-    width: 50vw;
+    min-width: 400px;
+
 }
 
-.developerHeader {
+.developerHeader {width: 400px;
 
 }
 
@@ -20,8 +25,14 @@
 
 .rowHeader {
     display: flex;
+    table-layout: fixed;
+    background-color: #e4e4e4;
+    padding: 10px;
+    font-weight: bold;
+    width: 800px;
+
 }
 
 .loading {
-
+width: 40px;
 }
