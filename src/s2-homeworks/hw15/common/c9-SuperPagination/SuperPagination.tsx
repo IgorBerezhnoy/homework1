@@ -56,6 +56,7 @@ const SuperPagination: React.FC<SuperPaginationPropsType> =
                     {id: 10, value: 10},
                 ]}
                 onChange={onChangeSelect}
+                style={ {width:"40px"}}
             />
 
             <span className={s.text2}>
