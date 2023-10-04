@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from 'react'
-import s2 from '../../s1-main/App.module.css'
-import s from './HW15.module.css'
-import axios from 'axios'
-import SuperPagination from './common/c9-SuperPagination/SuperPagination'
-import {useSearchParams} from 'react-router-dom'
-import SuperSort from './common/c10-SuperSort/SuperSort'
+import React, {useEffect, useState} from 'react';
+import s2 from '../../s1-main/App.module.css';
+import s from './HW15.module.css';
+import axios from 'axios';
+import SuperPagination from './common/c9-SuperPagination/SuperPagination';
+import {useSearchParams} from 'react-router-dom';
+import SuperSort from './common/c10-SuperSort/SuperSort';
+import {Loader} from '../hw10/Loader';
 
 /*
 * 1 - дописать SuperPagination
@@ -34,44 +35,50 @@ const getTechs = (params: ParamsType) => {
             {params}
         )
         .catch((e) => {
-            alert(e.response?.data?.errorText || e.message)
-        })
-}
+            alert(e.response?.data?.errorText || e.message);
+        });
+};
 
 const HW15 = () => {
-    const [sort, setSort] = useState('')
-    const [page, setPage] = useState(1)
-    const [count, setCount] = useState(4)
-    const [idLoading, setLoading] = useState(false)
-    const [totalCount, setTotalCount] = useState(100)
-    const [searchParams, setSearchParams] = useSearchParams()
-    const [techs, setTechs] = useState<TechType[]>([])
+    const [sort, setSort] = useState<string | 'O' | '1' | ''>('');
+    const [page, setPage] = useState(1);
+    const [count, setCount] = useState(4);
+    const [idLoading, setLoading] = useState(false);
+    const [totalCount, setTotalCount] = useState(100);
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [techs, setTechs] = useState<TechType[]>([]);
 
     const sendQuery = (params: any) => {
-        setLoading(true)
+
+        setLoading(true);
         getTechs(params)
             .then((res) => {
-                // делает студент
-
-                // сохранить пришедшие данные
-
-                //
+                if (res?.data) {
+                    setTechs(res.data.techs);
+                    setTotalCount(res.data.totalCount);
+                }
             })
-    }
+            .finally(() => {
+                setLoading(false);
+            });
+    };
 
     const onChangePagination = (newPage: number, newCount: number) => {
-        // делает студент
 
-        // setPage(
-        // setCount(
+        setPage(newPage);
+        setCount(newCount);
 
         // sendQuery(
         // setSearchParams(
 
         //
-    }
+    };
 
     const onChangeSort = (newSort: string) => {
+        console.log(newSort);
+        setSort(newSort);
+        setPage(1);
+
         // делает студент
 
         // setSort(
@@ -81,40 +88,38 @@ const HW15 = () => {
         // setSearchParams(
 
         //
-    }
+    };
 
     useEffect(() => {
-        const params = Object.fromEntries(searchParams)
-        sendQuery({page: params.page, count: params.count})
-        setPage(+params.page || 1)
-        setCount(+params.count || 4)
-    }, [])
+        const params = Object.fromEntries(searchParams);
+        sendQuery({page: params.page, count: params.count});
+        setPage(+params.page || 1);
+        setCount(+params.count || 4);
+    }, []);
 
     const mappedTechs = techs.map(t => (
         <div key={t.id} className={s.row}>
             <div id={'hw15-tech-' + t.id} className={s.tech}>
                 {t.tech}
             </div>
-
             <div id={'hw15-developer-' + t.id} className={s.developer}>
                 {t.developer}
             </div>
         </div>
-    ))
+    ));
 
     return (
         <div id={'hw15'}>
             <div className={s2.hwTitle}>Homework #15</div>
 
             <div className={s2.hw}>
-                {idLoading && <div id={'hw15-loading'} className={s.loading}>Loading...</div>}
+                {idLoading && <div id={'hw15-loading'} className={s.loading}><Loader/></div>}
 
                 <SuperPagination
                     page={page}
                     itemsCountForPage={count}
                     totalCount={totalCount}
-                    onChange={onChangePagination}
-                />
+                    onChange={onChangePagination}/>
 
                 <div className={s.rowHeader}>
                     <div className={s.techHeader}>
@@ -131,7 +136,7 @@ const HW15 = () => {
                 {mappedTechs}
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default HW15
+export default HW15;
